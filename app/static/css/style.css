@@ -1,0 +1,23 @@
+html, body, *{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+ul, li {
+	list-style-type: none;
+}
+
+header{
+	color: lightcyan;
+}
+
+header nav a{
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}

@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% block title %}Appscensores{% endblock %}</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+	<link rel="shortcut icon" href="{% static "./img/favicon.ico" %}" type="image/x-icon">
+	<link rel="icon" href="{% static "./img/favicon.ico" %}" type="image/x-icon">
+	<style href={% static "./css/style.css" %}></style>
+	<style href={% static "./css/flexboxgrid.min.css" %}></style>
+</head>
+<body>
+	<div class="row">
+		<div class="col-xs-12 center-xs">
+			<header>
+				<nav>
+					<a href="{% url 'home' %}">Inicio</a>
+					{% if user.is_authenticated %}
+					{% if user.is_staff %}
+					<a href="/admin">Administrar</a>
+					{% else %}
+					<a href="{% url 'cliente' %}">Registrar Cliente</a>
+					<a href="{% url 'orden' %}">Reparar Ascensor</a>
+					{% endif %}
+					{% endif %}
+				</nav>
+			</header>
+		</div>
+	</div>
+	{% block content %}
+	{% endblock %}
+	<div id="offlinedata">
+
+	</div>
+	<footer>
+		<div class="row">
+			<div class="col-xs end-xs">
+				<p>&copy Xuseto Web 2018</p>
+			</div>
+		</div>
+	</footer>
+	<script type="text/javascript" src="{% static 'js/idb.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/idbop.js' %}"></script>
+</body>
+</html>
